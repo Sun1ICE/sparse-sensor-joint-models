@@ -1,0 +1,218 @@
+[
+  {
+    "checkpoint_path": "checkpoints/split0_deepsets_formal_seed42.pt",
+    "sha256": "26d81833a9e3eb2bd300d95d52947ea42d82f6cb076d6a83d2eea126382b46b4",
+    "family": "deepsets",
+    "split_id": "split0",
+    "seed": 42,
+    "epoch": 1525
+  },
+  {
+    "checkpoint_path": "checkpoints/split0_deepsets_formal_seed43.pt",
+    "sha256": "ef0f3b6934b1ed8a81411477ecfba94c37bd7c17317f84e96d0d049eeb283850",
+    "family": "deepsets",
+    "split_id": "split0",
+    "seed": 43,
+    "epoch": 1515
+  },
+  {
+    "checkpoint_path": "checkpoints/split0_deepsets_formal_seed44.pt",
+    "sha256": "7008d2e03644f5be1e2c14453ef97585c123c09582a0bca8129d5b0eabb6566e",
+    "family": "deepsets",
+    "split_id": "split0",
+    "seed": 44,
+    "epoch": 1525
+  },
+  {
+    "checkpoint_path": "checkpoints/legacy_gnn_seed42.pt",
+    "sha256": "5360ec04e658a414b2d351536747a8191afbecb112c95ee32596e54bbf73ed74",
+    "family": "gnn",
+    "split_id": "split0",
+    "seed": 42,
+    "epoch": 1625
+  },
+  {
+    "checkpoint_path": "checkpoints/legacy_gnn_seed43.pt",
+    "sha256": "1069b0e35949fa6473d67726ebcd5d01e66f6208a1e3ee227c018b6a629b2723",
+    "family": "gnn",
+    "split_id": "split0",
+    "seed": 43,
+    "epoch": 1830
+  },
+  {
+    "checkpoint_path": "checkpoints/legacy_gnn_seed44.pt",
+    "sha256": "e1f8b7bffabbb25aed1104217d3de7c63e86a1b28dc89aac125567da7284cfd4",
+    "family": "gnn",
+    "split_id": "split0",
+    "seed": 44,
+    "epoch": 1445
+  },
+  {
+    "checkpoint_path": "checkpoints/legacy_mlp_seed42.pt",
+    "sha256": "536f54c4a080afa5300f923e00a0a3b4fbfa0abdb77a3322c89b5ddc8680977b",
+    "family": "mlp",
+    "split_id": "split0",
+    "seed": 42,
+    "epoch": 1305
+  },
+  {
+    "checkpoint_path": "checkpoints/legacy_mlp_seed43.pt",
+    "sha256": "d414c27ba1ba236cb4b22b894ac2ffa9bd3518a98225b4269e279b63a9449c78",
+    "family": "mlp",
+    "split_id": "split0",
+    "seed": 43,
+    "epoch": 1305
+  },
+  {
+    "checkpoint_path": "checkpoints/legacy_mlp_seed44.pt",
+    "sha256": "7f910f4528470b253dbea2fe310d37b4726b93970f34945de87b4393a7097c32",
+    "family": "mlp",
+    "split_id": "split0",
+    "seed": 44,
+    "epoch": 1300
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_deepsets_formal_seed42.pt",
+    "sha256": "ec669bdbcbd7adc99c51fbc17f8e1ec6c0d9f0a965d6b4dcd1236483e0d410c6",
+    "family": "deepsets",
+    "split_id": "split1",
+    "seed": 42,
+    "epoch": 1475
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_deepsets_formal_seed43.pt",
+    "sha256": "8c4b78975b80827af103bbe7ad8bda85f4dfefeb693036beb5921f45c8a74786",
+    "family": "deepsets",
+    "split_id": "split1",
+    "seed": 43,
+    "epoch": 1870
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_deepsets_formal_seed44.pt",
+    "sha256": "297131b0736a89846eb1a67d0025afb1851c482e0e7a6eb6603ad94804f71c88",
+    "family": "deepsets",
+    "split_id": "split1",
+    "seed": 44,
+    "epoch": 1960
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_gnn_formal_seed42.pt",
+    "sha256": "8809cd3556d180fa843db89a43a61c6d0a7aba7dceb5163129527ac088ad4353",
+    "family": "gnn",
+    "split_id": "split1",
+    "seed": 42,
+    "epoch": 1460
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_gnn_formal_seed43.pt",
+    "sha256": "006843b354c23e4fc468613016297078bdbb436b693471cf51dbe4be9db3788f",
+    "family": "gnn",
+    "split_id": "split1",
+    "seed": 43,
+    "epoch": 1470
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_gnn_formal_seed44.pt",
+    "sha256": "ef1955b85fc0a5f94ad1a35f3d5695273d96dadb90ff2ec8bc9837dfafc9eabd",
+    "family": "gnn",
+    "split_id": "split1",
+    "seed": 44,
+    "epoch": 1455
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_mlp_formal_seed42.pt",
+    "sha256": "e125ee974af488b9361c39d8db71a2ca4a2c43f645b46a125019f04669eeef36",
+    "family": "mlp",
+    "split_id": "split1",
+    "seed": 42,
+    "epoch": 1405
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_mlp_formal_seed43.pt",
+    "sha256": "a5b00d4af4f853bc44c6258d66771ac78c42ef30a3f7d1c80d523e5ae45ff4f3",
+    "family": "mlp",
+    "split_id": "split1",
+    "seed": 43,
+    "epoch": 1500
+  },
+  {
+    "checkpoint_path": "checkpoints/split1_mlp_formal_seed44.pt",
+    "sha256": "1466da604d4b361ff01130ab45a4ec3390dfe0285d6bb08e9db568ae8cc56a2c",
+    "family": "mlp",
+    "split_id": "split1",
+    "seed": 44,
+    "epoch": 1275
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_deepsets_formal_seed42.pt",
+    "sha256": "2ad92d6408232303e9ccc16036145a0ca124efd957cda7f56413e0854b3181c8",
+    "family": "deepsets",
+    "split_id": "split2",
+    "seed": 42,
+    "epoch": 1565
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_deepsets_formal_seed43.pt",
+    "sha256": "e90a69ea2b8eb7f803ae3a294c31873d97ebdbcd7c3b2c35e7e754e00df0f6fe",
+    "family": "deepsets",
+    "split_id": "split2",
+    "seed": 43,
+    "epoch": 1865
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_deepsets_formal_seed44.pt",
+    "sha256": "3a6d0373c264faf32e83af3ab336c7dd7affffc0253a7d7b7004a9b24f2a08bc",
+    "family": "deepsets",
+    "split_id": "split2",
+    "seed": 44,
+    "epoch": 1790
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_gnn_formal_seed42.pt",
+    "sha256": "495da0e4b5bc45f959dfa8fde7ec11168cec9525c6f4694da7add5653735a0db",
+    "family": "gnn",
+    "split_id": "split2",
+    "seed": 42,
+    "epoch": 1215
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_gnn_formal_seed43.pt",
+    "sha256": "07a6f68ce7822f48facd7743017765fd6102f387141f2519a10947f316bd77b4",
+    "family": "gnn",
+    "split_id": "split2",
+    "seed": 43,
+    "epoch": 1665
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_gnn_formal_seed44.pt",
+    "sha256": "87dd53ab78a6ec94603f0dbffa5c609af88670f6b8cb7eef24222f17c58d3087",
+    "family": "gnn",
+    "split_id": "split2",
+    "seed": 44,
+    "epoch": 1770
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_mlp_formal_seed42.pt",
+    "sha256": "f5a5e130cdcf2d1423a1d6af235121c46d5bcec2d576cbcd2c6e00b722108a3e",
+    "family": "mlp",
+    "split_id": "split2",
+    "seed": 42,
+    "epoch": 1530
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_mlp_formal_seed43.pt",
+    "sha256": "e343f0e19bc42337177ece413e78062ec65c4694e51bdb01f0f1c65bdac8fed5",
+    "family": "mlp",
+    "split_id": "split2",
+    "seed": 43,
+    "epoch": 1445
+  },
+  {
+    "checkpoint_path": "checkpoints/split2_mlp_formal_seed44.pt",
+    "sha256": "dd343a90117ca86181b69ff9240381a980b7c1af4e5991ba7b8e32419e7965f7",
+    "family": "mlp",
+    "split_id": "split2",
+    "seed": 44,
+    "epoch": 1155
+  }
+]

@@ -2,6 +2,27 @@
 
 给定两个测点的三向转频（1X）复加速度和当前转速，联合模型重构两个机匣上全部 14 个测点的三向 1X 复响应，并估计不平衡量幅值 U。模型用 PyTorch 实现，统一通过 `build_model(family, scale_g)` 创建。
 
+## 论文复现 · Reproducing Table 7
+
+本版本提供 GNN、MLP、DeepSets 的 27 个正式检查点（三个布局划分，每个划分三个训练种子），以及确定性的训练表反演实现。图 14 和回放计时所用的单个部署 GNN 是 `checkpoints/legacy_gnn_seed43.pt`（Split0，seed 43，epoch 1830）。[检查点清单与 SHA-256](checkpoints/manifest.json)
+
+在仓库根目录运行以下命令。第一条表格命令只依赖 Python 标准库。其余入口使用 NumPy、SciPy 和 PyTorch。
+
+```sh
+python -X utf8 table7/reproduce.py
+python -m pip install -r requirements.txt
+python -m examples.simulated_pair
+python replay_table7.py --device cpu --output .repro/group_sums.csv
+python -X utf8 table7/reproduce.py --input .repro/group_sums.csv
+```
+
+- **核对论文数字。** `table7/reproduce.py` 从归档的 360 组误差、能量和计数重建表 7 的 16 行及三个指标的均值与样本标准差。[统计口径与字段](table7/README.md)
+- **从模型重新推理。** `replay_table7.py` 读取 M6 的 200 窗 1X 复系数、同窗匹配的合成特征和冻结权重，重新评估各划分的 21 种未见布局、四种输入与目标配对（SS、SM、MS、MM）。脚本在临时目录重建约 385 MB 的训练表并执行反演。有 CUDA 的机器可将 `--device cpu` 改为 `--device cuda`。反演在 CPU 上运行。浮点结果可能随硬件和数学库略有差异。[预处理数据字段与相位约定](processed/README.md) · [反演目标函数和搜索过程](docs/inversion.md)
+- **运行模拟示例。** `examples.simulated_pair` 即时生成模拟校准表和两个测点的复数输入，检查反演、冻结 GNN 和公共相位旋转。论文实测结果由上面的 M6 入口复算。
+- **检查或重新执行训练。** 三种神经模型的配置、掩码、学习率筛选、早停和检查点选择见训练说明。运行 `python -m training.run --demo --output .repro/training-demo` 可在小型模拟输入上走完整个流程。运行 `python prepare_tables.py --output .repro/data` 可重建研究用合成训练与验证数组；正式训练使用 `--data-dir .repro/data`。[训练与选模说明](docs/training.md) · [三份布局划分](training/pair_splits/)
+
+实测资料以窗口级转速、已提取的复数 1X、配重和有效性标记发布。20 kHz 原始加速度、力信号和转速采集记录均未纳入仓库。
+
 ## 三种模型架构
 
 三种模型采用相同的输入表示。模型从两个观测点的六个通道中选取幅值最大的通道作为相位参考，从各通道的相位中减去参考相位，再按机匣和方向归一化。每个节点有 15 个特征，包括三向复响应的 6 个实数分量、3 个幅值、1 个观测标记、4 个几何特征和 1 个转速特征。输出的复响应会恢复到输入的相位坐标系。

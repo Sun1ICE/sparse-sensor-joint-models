@@ -1,0 +1,49 @@
+{
+  "revision": "dual_casing14_sparse_joint_ablation_v1",
+  "families": [
+    "gnn",
+    "mlp",
+    "deepsets",
+    "gnn_no_edge",
+    "gnn_uniform",
+    "gnn_response_only",
+    "gnn_u_only"
+  ],
+  "hidden": 128,
+  "graph_layers": 3,
+  "attention_heads": 4,
+  "hpo_seed": 41,
+  "learning_rates": [
+    0.001,
+    0.0003
+  ],
+  "hpo_max_epochs": 300,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "formal_max_epochs": 2000,
+  "weight_decay": 0.0001,
+  "gradient_clip": 1.0,
+  "batch_size": 1024,
+  "microbatch_size": 1024,
+  "validation_every": 5,
+  "lr_patience": 8,
+  "early_stop_patience": 30,
+  "min_validations_after_lr_drop": 10,
+  "lr_factor": 0.5,
+  "min_lr": 1e-06,
+  "device": "cuda:0",
+  "precision": "bf16",
+  "noise_levels": [
+    0.0,
+    0.01,
+    0.03,
+    0.05
+  ],
+  "monitor_seed": 20261022,
+  "data_seed": 20261023,
+  "cpu_threads": 2,
+  "max_parallel_workers": 4
+}
