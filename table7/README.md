@@ -7,7 +7,7 @@ python table7/reproduce.py
 python table7/reproduce.py --output table7_native_units.csv
 ```
 
-第一条命令输出与英文论文 v2 表 7 相同单位、行次和精度的 Markdown 表。第二条同时写出 48 行未舍入的均值与样本标准差，复 RMSE 单位为 g，相对 L2 为无量纲比值，U MAE 单位为 g·cm。可通过 `--input PATH` 读取符合下述格式的重新推理结果。
+第一条命令输出与终稿表 7 相同单位、行次和精度的 Markdown 表。第二条同时写出 48 行未舍入的均值与样本标准差，复 RMSE 单位为 g，相对 L2 为无量纲比值，U MAE 单位为 g·cm。可通过 `--input PATH` 读取符合下述格式的重新推理结果。
 
 ## 条件和配对
 
@@ -38,4 +38,4 @@ S 表示在同一窗口转速和标称 U 下取得的 PCHIP 合成复响应，M 
 
 分组和来自冻结 M6 评价归档中每个模型对应的逐窗误差分解文件，由 heldout_pairs 选出具体布局。四种配对分别累加 E_SS、E_SM、E_MS、E_MM；目标能量取 target_S 或 target_M；U 绝对误差取 abs_U_S 或 abs_U_M。仅分组和计数进入本 CSV。该文件可以重新计算表格的全部数字，逐窗重新推理则另需检查点与相应输入。
 
-发布前将 SS、SM、MM 的未舍入结果与原实验的 `paired_summary.csv` 对照，将 MS 与补充评价的 `prediction_summary.csv` 对照。全部 48 组均值和标准差通过核对，按论文精度显示的 16 行、48 个单元格均与英文 v2 表 7 相同。
+发布前将 SS、SM、MM 的未舍入结果与原实验的 `paired_summary.csv` 对照，将 MS 与补充评价的 `prediction_summary.csv` 对照。全部 48 组均值和标准差通过核对，按论文精度显示的 16 行、48 个单元格均与终稿表 7 相同。

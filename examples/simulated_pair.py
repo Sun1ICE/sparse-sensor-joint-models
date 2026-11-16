@@ -1,6 +1,8 @@
 """Exercise both prediction methods on deterministic simulated observations.
 
-Run from the repository root: python -m examples.simulated_pair
+Run from the repository root with python -m examples.simulated_pair. The default
+GNN uses randomly initialized weights and RMS scales from the simulated table.
+An optional --checkpoint PATH loads a locally trained joint model.
 """
 import argparse
 from pathlib import Path
@@ -10,8 +12,9 @@ import numpy as np
 import torch
 
 from classical import ClassicalInverse
+from models import build_model
 from node_spec import ANGLES_DEG, CASING_IDS, NODE_IDS, U_MAX
-from predict import load_checkpoint
+from predict import Predictor, load_checkpoint
 
 
 def simulated_response(unbalance, rpm):
@@ -46,7 +49,7 @@ def write_simulated_table(root):
 
 
 def check_outputs(name, result, rotation):
-    # The same API checks apply to both the neural checkpoint and the inverse.
+    # The neural predictor and the inverse share these output conventions.
     valid = np.asarray(result["prediction_valid"])
     np.testing.assert_array_equal(valid, [True, True, False])
     response = np.asarray(result["response_hat_g"])
@@ -63,8 +66,7 @@ def check_outputs(name, result, rotation):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    checkpoint = Path(__file__).resolve().parents[1] / "checkpoints" / "legacy_gnn_seed43.pt"
-    parser.add_argument("--checkpoint", type=Path, default=checkpoint)
+    parser.add_argument("--checkpoint", type=Path, help="Path to a locally trained joint-model checkpoint")
     args = parser.parse_args()
     torch.set_num_threads(1)
     pair = ("I135", "I315")
@@ -76,8 +78,6 @@ def main():
     fixed_pair = truth[nodes]
     inputs = real_imag(np.stack((fixed_pair, fixed_pair * rotation, np.zeros_like(fixed_pair))))
     speeds = np.full(3, rpm, dtype=np.float32)
-    model = load_checkpoint(args.checkpoint, device="cpu")
-    check_outputs("Frozen GNN", model.predict_two_points(pair, inputs, speeds), rotation)
 
     full_input = np.zeros((3, 14, 3, 2), dtype=np.float32)
     full_input[:, nodes] = inputs
@@ -86,6 +86,15 @@ def main():
     with TemporaryDirectory() as work:
         root = Path(work)
         scales = write_simulated_table(root)
+        if args.checkpoint is None:
+            torch.manual_seed(0)
+            model = Predictor(build_model("gnn", scale_g=scales), device="cpu")
+            model_name = "Randomly initialized GNN (interface demonstration)"
+        else:
+            model = load_checkpoint(args.checkpoint, device="cpu")
+            model_name = "Checkpoint model"
+        check_outputs(model_name, model.predict_two_points(pair, inputs, speeds), rotation)
+
         inverse = ClassicalInverse(root, scales)
         result = inverse(torch.from_numpy(full_input), torch.from_numpy(speeds), torch.from_numpy(mask))
         estimated, u_estimated = check_outputs("Simulated-table inversion", result, rotation)

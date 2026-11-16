@@ -2,3 +2,12 @@ __pycache__/
 *.py[cod]
 .venv/
 .repro/
+
+# Local model weights and training inputs
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+train.npz
+validation.npz
+/processed/pchip_speed_grid.npz
